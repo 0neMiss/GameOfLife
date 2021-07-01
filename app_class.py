@@ -197,7 +197,9 @@ class App:
     #draws to the screen and updates
     def reset_draw(self):
         #for each button object in the button array, draw the button in the window
-            #if self.selected and
+        #if self.selected and
+        self.pos_arr = []
+        self.buffer_arr = []
         self.window.fill(WHITE)
         self.drawGrid(self.window)
         pygame.display.update()
