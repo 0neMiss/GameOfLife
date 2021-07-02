@@ -12,9 +12,6 @@ class App:
         self.generation_count = 0
         #bool for if running
         self.running = True
-        # an array of numbers to be plugged into the drawgrid function
-        self.grid = testBoard
-        self.preset = 0
         #bool for selecting squares
         self.selected = None
         #var for mouse position tracking
@@ -115,7 +112,10 @@ class App:
     #draws to the screen and updates
     def paused_draw(self):
         self.drawGrid(self.window)
+        for pos in self.pos_arr:
+            self.drawSelectionBlack(self.window, pos)
         pygame.display.update()
+
 
 
 ############PLAYING STATE################
@@ -197,7 +197,9 @@ class App:
     #draws to the screen and updates
     def reset_draw(self):
         #for each button object in the button array, draw the button in the window
-            #if self.selected and
+        #if self.selected and
+        self.pos_arr = []
+        self.buffer_arr = []
         self.window.fill(WHITE)
         self.drawGrid(self.window)
         pygame.display.update()
@@ -385,19 +387,21 @@ class App:
         print(self.timer_tick)
 
     def presets1(self):
-        self.reset()
-        self.pos_arr = position1
         self.buffer_arr = [] 
+        self.pos_arr = position1
+        
 
     def presets2(self):
         self.reset()
-        self.pos_arr = position2
         self.buffer_arr = []
+        self.pos_arr = position2
+        
 
     def presets3(self):
         self.reset()
-        self.pos_arr = position3
         self.buffer_arr = []
+        self.pos_arr = position3
+        
 
     ###########TODO##########
 
